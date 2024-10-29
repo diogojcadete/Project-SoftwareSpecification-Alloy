@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<alloy>
+
+<view>
+
+<defaultnode/>
+
+<defaultedge/>
+
+<node>
+   <type name="Int"/>
+   <type name="Msg"/>
+   <type name="PendingMsg"/>
+   <type name="SendingMsg"/>
+   <type name="SentMsg"/>
+   <type name="String"/>
+   <type name="univ"/>
+   <type name="seq/Int"/>
+</node>
+
+<node color="Blue">
+   <set name="this/Member" type="Node"/>
+</node>
+
+<node color="Yellow">
+   <set name="this/Leader" type="Node"/>
+</node>
+
+<node shape="Circle" color="White">
+   <type name="Node"/>
+</node>
+
+<node visible="no" showlabel="no">
+   <set name="$m1" type="Node"/>
+   <set name="$m2" type="Node"/>
+</node>
+
+<edge visible="no">
+   <relation name="$mem"> <type name="SendingMsg"/> <type name="Node"/> </relation>
+   <relation name="lnxt"> <type name="Node"/> <type name="Node"/> <type name="Node"/> </relation>
+   <relation name="qnxt"> <type name="Node"/> <type name="Node"/> <type name="Node"/> </relation>
+</edge>
+
+<edge visible="no" attribute="yes">
+   <relation name="outbox"> <type name="Node"/> <type name="Msg"/> </relation>
+   <relation name="rcvrs"> <type name="Msg"/> <type name="Node"/> </relation>
+   <relation name="sndr"> <type name="Msg"/> <type name="Node"/> </relation>
+</edge>
+
+</view>
+
+</alloy>
